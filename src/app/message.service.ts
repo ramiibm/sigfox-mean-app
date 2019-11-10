@@ -25,6 +25,14 @@ export class MessageService {
                  .catch(this.handleError);
     }
 
+    // post("/api/contacts")
+    createMessage(newMessage: Message): Promise<void | Message> {
+      return this.http.post(this.messagesUrl, newMessage)
+                 .toPromise()
+                 .then(response => response as Message)
+                 .catch(this.handleError);
+    }
+
 	// getMessages(): Observable<Message[]> {
 	// 	return of(MESSAGES);
 	// }
