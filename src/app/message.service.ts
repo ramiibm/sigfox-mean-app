@@ -17,20 +17,21 @@ export class MessageService {
 
 	constructor(private http: HttpClient) { }
 
-	getMessages(): Observable<Message[]> {
-		return of(MESSAGES);
-	}
+	// get("/api/contacts")
+    getMessages(): Promise<void | Message[]> {
+      return this.http.get(this.messagesUrl)
+                 .toPromise()
+                 .then(response => response.json() as Message[])
+                 .catch(this.handleError);
+    }
 
-	// private handleError<T> (operation = 'operation', result?: T) {
-	// 	return (error: any): Observable<T> => {
-	// 		// TODO: send the error to remote logging infrastructure
-	// 		console.error(error); // log to console instead
-
-	// 		// TODO: better job of transforming error for user consumption
-	// 		this.log(`${operation} failed: ${error.message}`);
-
-	// 		// Let the app keep running by returning an empty result.
-	// 		return of(result as T);
-	// 	};
+	// getMessages(): Observable<Message[]> {
+	// 	return of(MESSAGES);
 	// }
+
+	private handleError (error: any) {
+      let errMsg = (error.message) ? error.message :
+      error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+      console.error(errMsg); // log to console instead
+    }
 }
