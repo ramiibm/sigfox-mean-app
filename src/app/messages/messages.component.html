@@ -1,0 +1,10 @@
+<h2>Messages</h2>
+<ul class="messages">
+	<li *ngFor="let message of messages"
+	[class.selected]="message === selectedMessage" 
+	(click)="onSelect(message)">
+		<span class="badge">{{message.device}}</span> {{message.data}}
+	</li>
+</ul>
+
+<app-message-detail [message]="selectedMessage"></app-message-detail>
