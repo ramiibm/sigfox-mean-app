@@ -20,7 +20,7 @@ export class MessagesComponent implements OnInit {
 		// this.messageService.getMessages()
 		// 	.subscribe(messages => this.messages = messages);
 		this.messageService.getMessages()
-		.then((messages: Contact[]) => {
+		.then((messages: Message[]) => {
 			this.messages = messages.map((message) => {
 				return message;
 			});
