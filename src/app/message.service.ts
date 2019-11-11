@@ -37,6 +37,14 @@ export class MessageService {
 	// 	return of(MESSAGES);
 	// }
 
+   // delete("/api/contacts/:id")
+    deleteMessage(delMessageId: String): Promise<void | String> {
+      return this.http.delete(this.messagesUrl + '/' + delMessageId)
+                 .toPromise()
+                 .then(response => response as String)
+                 .catch(this.handleError);
+    }
+
 	private handleError (error: any) {
       let errMsg = (error.message) ? error.message :
       error.status ? `${error.status} - ${error.statusText}` : 'Server error';

@@ -86,4 +86,11 @@ app.put("/api/messages/:id", function(req, res) {
 });
 
 app.delete("/api/messages/:id", function(req, res) {
+	db.collection(MESSAGES_COLLECTION).deleteOne({_id: new ObjectID(req.params.id)}, function(err, result) {
+    if (err) {
+      handleError(res, err.message, "Failed to delete message");
+    } else {
+      res.status(200).json(req.params.id);
+    }
+  });
 });
