@@ -43,6 +43,24 @@
   border-radius: 4px 0 0 4px;
 }
 
-#leftpanel {
-  background-color: #000;
+.sidebar {
+    position: fixed;
+    background: rgb(50,50,69);
+    width: 40%;
+    height: 100%;
+    color: rgb(228,221,237);
+    top: 0;
+    left: 0;
+}
+
+.content {
+    margin-left: 40%;
+    height: 100%;
+    width: 60%;
+    position: fixed;
+    top: 0; 
+    left: 0;
+    background: rgb(251,251,249);
+    color: rgb(74, 71, 75);
+    overflow: auto;
 }
