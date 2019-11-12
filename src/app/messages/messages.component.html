@@ -1,6 +1,7 @@
 <link rel="stylesheet" type="text/css">
 <div class="sidebar">
 	<ul class="messages">
+		<h3>Messages</h3>
 		<li *ngFor="let message of messages" [class.selected]="message === selectedMessage" (click)="onSelect(message)">
 			<span class="badge">{{message.device}}</span> {{message.data}}
 		</li>
