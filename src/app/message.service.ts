@@ -25,7 +25,7 @@ export class MessageService {
                  .catch(this.handleError);
     }
 
-    getTextMessage(hexData: number): Promise<void | String> {
+    getTextMessage(hexData: number): String {
       var hexString  = hexData.toString();
       var textMessage = '';
       for (var n = 0; n < hexString.length; n += 2) {
