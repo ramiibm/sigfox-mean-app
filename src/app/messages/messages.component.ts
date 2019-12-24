@@ -20,11 +20,12 @@ export class MessagesComponent implements OnInit {
 		// this.messageService.getMessages()
 		// 	.subscribe(messages => this.messages = messages);
 		this.messageService.getMessages()
-		.then((messages: Message[]) => {
-			this.messages = messages.map((message) => {
-				return message;
+			.then((messages: Message[]) => {
+				this.messages = messages.map((message) => {
+					message.text = this.messageService.getTextMessage(message.data);
+					return message;
+				});
 			});
-		});
 	}
 
 	ngOnInit() {

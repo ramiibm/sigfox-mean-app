@@ -25,6 +25,15 @@ export class MessageService {
                  .catch(this.handleError);
     }
 
+    getTextMessage(hexData: number): Promise<void | String> {
+      var hexString  = hexData.toString();
+      var textMessage = '';
+      for (var n = 0; n < hexString.length; n += 2) {
+        textMessage += String.fromCharCode(parseInt(hexString.substr(n, 2), 16));
+      }
+      return textMessage;
+    }
+
     // post("/api/contacts")
     createMessage(newMessage: Message): Promise<void | Message> {
       return this.http.post(this.messagesUrl, newMessage)

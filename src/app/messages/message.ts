@@ -3,4 +3,5 @@ export class Message {
 	device: string;
 	data: number;
 	time: number;
+	text: string;
 }
